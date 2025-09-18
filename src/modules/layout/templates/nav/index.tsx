@@ -6,11 +6,13 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
 
+import { t } from "@/languages"
 export default async function Nav() {
+  const lang = "da" // Change to "en" for English, or set dynamically
   const regions = await listRegions().then((regions: StoreRegion[]) => regions)
 
   return (
-    <div className="sticky top-0 inset-x-0 z-50 group">
+    <div className="sticky top-0 inset-x-0 z-50 group ">
       <header className="relative h-16 mx-auto border-b duration-200 bg-white border-ui-border-base">
         <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
           <div className="flex-1 basis-0 h-full flex items-center">
@@ -22,10 +24,10 @@ export default async function Nav() {
           <div className="flex items-center h-full">
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
+              className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase font-soria"
               data-testid="nav-store-link"
             >
-              Medusa Store
+              LOUBOUBOU {/* Changed NAVBAR from Medusa Store to LOUBOUBOU */}
             </LocalizedClientLink>
           </div>
 
@@ -36,7 +38,7 @@ export default async function Nav() {
                 href="/account"
                 data-testid="nav-account-link"
               >
-                Account
+                {t(lang, "navbar", "account")}
               </LocalizedClientLink>
             </div>
             <Suspense
@@ -46,7 +48,7 @@ export default async function Nav() {
                   href="/cart"
                   data-testid="nav-cart-link"
                 >
-                  Cart (0)
+                  {t(lang, "navbar", "cart")} (0)
                 </LocalizedClientLink>
               }
             >

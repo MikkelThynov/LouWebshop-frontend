@@ -34,6 +34,11 @@ module.exports = {
           80: "#1F2937",
           90: "#111827",
         },
+        scandinavianColors: {
+          lightBlue: "#DCEEFB",
+          mediumBlue: "#B6E0FE",
+          beige: "#F5EFE6",
+        },
       },
       borderRadius: {
         none: "0px",
@@ -68,7 +73,9 @@ module.exports = {
           "Helvetica Neue",
           "Ubuntu",
           "sans-serif",
+          "Soria",
         ],
+        soria: ["Soria", "serif"],
       },
       keyframes: {
         ring: {

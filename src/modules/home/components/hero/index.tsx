@@ -8,26 +8,21 @@ const Hero = () => {
         <span>
           <Heading
             level="h1"
-            className="text-3xl leading-10 text-ui-fg-base font-normal"
+            className="text-3xl leading-10 text-ui-fg-base font-normal font-soria"
           >
-            Ecommerce Starter Template
+            LOUBOUBOU
           </Heading>
           <Heading
             level="h2"
-            className="text-3xl leading-10 text-ui-fg-subtle font-normal"
+            className="text-3xl leading-10 text-ui-fg-subtle font-light font-roboto"
           >
-            Powered by Medusa and Next.js
+            Lokale kvalitetsprodukter fra Europa
           </Heading>
         </span>
         <a
           href="https://github.com/medusajs/nextjs-starter-medusa"
           target="_blank"
-        >
-          <Button variant="secondary">
-            View on GitHub
-            <Github />
-          </Button>
-        </a>
+        ></a>
       </div>
     </div>
   )

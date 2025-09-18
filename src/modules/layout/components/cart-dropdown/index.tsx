@@ -1,4 +1,5 @@
 "use client"
+import { t } from "@/languages"
 
 import {
   Popover,
@@ -22,6 +23,7 @@ const CartDropdown = ({
 }: {
   cart?: HttpTypes.StoreCart | null
 }) => {
+  const lang = "da" // Change to "en" for English, or set dynamically
   const [activeTimer, setActiveTimer] = useState<NodeJS.Timer | undefined>(
     undefined
   )
@@ -85,7 +87,11 @@ const CartDropdown = ({
             className="hover:text-ui-fg-base"
             href="/cart"
             data-testid="nav-cart-link"
-          >{`Cart (${totalItems})`}</LocalizedClientLink>
+          >{`${t(
+            lang,
+            "navbar",
+            "cart"
+          )} (${totalItems})`}</LocalizedClientLink>
         </PopoverButton>
         <Transition
           show={cartDropdownOpen}
@@ -103,7 +109,7 @@ const CartDropdown = ({
             data-testid="nav-cart-dropdown"
           >
             <div className="p-4 flex items-center justify-center">
-              <h3 className="text-large-semi">Cart</h3>
+              <h3 className="text-large-semi">{t(lang, "navbar", "cart")}</h3>
             </div>
             {cartState && cartState.items?.length ? (
               <>
@@ -197,7 +203,7 @@ const CartDropdown = ({
                       size="large"
                       data-testid="go-to-cart-button"
                     >
-                      Go to cart
+                      {t(lang, "cart", "goToCart")}
                     </Button>
                   </LocalizedClientLink>
                 </div>
@@ -208,12 +214,14 @@ const CartDropdown = ({
                   <div className="bg-gray-900 text-small-regular flex items-center justify-center w-6 h-6 rounded-full text-white">
                     <span>0</span>
                   </div>
-                  <span>Your shopping bag is empty.</span>
+                  <span>{t(lang, "cart", "emptyBag")}</span>
                   <div>
                     <LocalizedClientLink href="/store">
                       <>
                         <span className="sr-only">Go to all products page</span>
-                        <Button onClick={close}>Explore products</Button>
+                        <Button onClick={close}>
+                          {t(lang, "cart", "exploreProducts")}
+                        </Button>
                       </>
                     </LocalizedClientLink>
                   </div>
